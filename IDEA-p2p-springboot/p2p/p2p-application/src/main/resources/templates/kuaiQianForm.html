@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p th:if="${success eq 1}">Success</p>
+    <p th:if="${success eq 0}">Failure</p>
+<script th:inline="javascript">
+    var success = [[${success}]];
+    if(success == 1) {
+        alert("充值成功")
+    } else {
+        alert("充值失败");
+    }
+
+    window.location.href = "/"
+</script>
+</body>
+</html>
