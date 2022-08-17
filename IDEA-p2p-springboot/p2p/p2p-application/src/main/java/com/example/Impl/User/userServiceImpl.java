@@ -23,11 +23,12 @@ public class userServiceImpl implements userService {
     @Autowired
     private FinanceAccountMapper financeAccountMapper;
 
-    @Autowired
-    private RedisTemplate<Object, Object> redisTemplate;
+    //@Autowired
+    //private RedisTemplate<Object, Object> redisTemplate;
 
     @Override
     public long queryAllUserCount() {
+        /*
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         Long userCount = (Long) redisTemplate.opsForValue().get(Constants.USER_COUNT);
         if(!ObjectUtils.allNotNull(userCount)) {
@@ -39,7 +40,9 @@ public class userServiceImpl implements userService {
                 }
             }
         }
-        return userCount;
+
+         */
+        return userMapper.selectAllUserCount();
     }
 
     @Override

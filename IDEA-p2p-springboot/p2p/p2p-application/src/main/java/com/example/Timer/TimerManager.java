@@ -12,9 +12,9 @@ public class TimerManager {
 
     public void generateIncomePlan() {
         try {
-            System.out.println("===========生成受益计划开始======");
+            System.out.println("===========Starting generate income plan======");
             incomeRecordService.generateIncomePlan();
-            System.out.println("===========生成受益计划结束======");
+            System.out.println("===========Ending generate income plan======");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -22,8 +22,8 @@ public class TimerManager {
 
     @Scheduled(cron = "* 0/12 * * * *")
     public void generateIncomeBack() throws Exception {
-        System.out.println("======开始返还收益====");
+        //System.out.println("======Starting generate income back====");
         incomeRecordService.generateIncomeBack();
-        System.out.println("======结束返还收益====");
+        //System.out.println("=====Ending generate income back=====");
     }
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="散标，理财产品，投资产品，投资理财" />
+    <meta http-equiv="description" content=""/>
+    <script type="text/javascript" language="javascript" th:src="@{/js/jquery-1.7.2.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/trafficStatistics.js}"></script>
+    <script type="text/javascript" language="javascript" th:src="@{/js/borrow.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/share.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <style type="text/css">body{background:#f2f2f2;}</style>
+    <title>散标,互联网金融产品列表-动力金融网,专业的互联网金融信息服务平台</title>
+</head>
+<div th:include="commons/header :: html"></div>
+<div class="login-box clearfix" style="z-index:10;">
+    <label>汇率</label>
+    <input type="text" id="rate">
+</div>
+
+<div>
+    <label>项目类型</label>
+    <input type="text" id="productName" list="productNameList" />
+    <datalist id="productNameList">
+        <option value="新手宝"></option>
+        <option value="优选类产品"></option>
+        <option value="散标类产品"></option>
+    </datalist>
+</div>
+
+<div>
+    <label>借款数目</label>
+    <input type="text" id="productMoney" list="productMoney" />
+</div>
+
+<div>
+    <button onclick="submit_borrow_info()">Submit</button>
+</div>
+
+
+<div th:include="commons/footer :: html"></div>
+</html>

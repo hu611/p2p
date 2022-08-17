@@ -113,6 +113,11 @@ public class LoanInfoController {
             return Result.fail("投资失败");
         }
     }
+
+    @RequestMapping("/loan/borrow")
+    public String borrow() {
+        return "borrow";
+    }
     /**
      * get total page number based on page size and total number of records
      * @param totalNumOfRows

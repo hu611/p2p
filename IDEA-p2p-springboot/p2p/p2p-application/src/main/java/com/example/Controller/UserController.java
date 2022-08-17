@@ -31,8 +31,8 @@ public class UserController {
     @Autowired
     financeAccountService financeAccountService;
 
-    @Autowired
-    RedisTemplate<Object, Object> redisTemplate;
+    //@Autowired
+    //RedisTemplate<Object, Object> redisTemplate;
 
     @RequestMapping("/loan/page/register")
     public String toRegister() {
@@ -167,8 +167,8 @@ public class UserController {
             stringBuffer.append(rand);
         }
         String result = stringBuffer.toString();
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.opsForValue().set(phone, result);
+        //redisTemplate.setKeySerializer(new StringRedisSerializer());
+        //redisTemplate.opsForValue().set(phone, result);
         return Result.success(result);
     }
 

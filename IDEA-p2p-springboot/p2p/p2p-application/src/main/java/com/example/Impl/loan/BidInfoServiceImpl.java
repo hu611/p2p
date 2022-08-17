@@ -24,11 +24,12 @@ public class BidInfoServiceImpl implements BidInfoService {
     @Autowired
     private UserMapper userMapper;
 
-    @Autowired
-    private RedisTemplate<Object, Object> redisTemplate;
+    //@Autowired
+    //private RedisTemplate<Object, Object> redisTemplate;
 
     @Override
     public double queryTotalBidMoney() {
+        /*
         Double totalBidMoney = (Double) redisTemplate.opsForValue().get(Constants.ALL_BID_MONEY);
         if(!ObjectUtils.allNotNull(totalBidMoney)) {
             synchronized (this) {
@@ -41,7 +42,8 @@ public class BidInfoServiceImpl implements BidInfoService {
                 }
             }
         }
-        return totalBidMoney;
+        */
+        return bidInfoMapper.selectTotalBidMoney();
     }
 
     @Override
@@ -55,6 +57,7 @@ public class BidInfoServiceImpl implements BidInfoService {
      */
     @Override
     public List<PhoneAndBidAmount> queryBidUserTop() {
+        /*
         ArrayList<PhoneAndBidAmount> phoneAndBidAmountArrayList = new ArrayList<>();
         Set<ZSetOperations.TypedTuple<Object>> set = redisTemplate.opsForZSet().reverseRangeWithScores(Constants.TOP_INVESTOR, 0 ,5);
         Iterator<ZSetOperations.TypedTuple<Object>> iterator = set.iterator();
@@ -68,7 +71,8 @@ public class BidInfoServiceImpl implements BidInfoService {
             phoneAndBidAmount.setBidMoney(bidAmount);
             phoneAndBidAmountArrayList.add(phoneAndBidAmount);
         }
-        return phoneAndBidAmountArrayList;
+        */
+        return bidInfoMapper.queryAllUsersAndBidAmounts();
 
     }
 
@@ -78,8 +82,10 @@ public class BidInfoServiceImpl implements BidInfoService {
     @Override
     public void initializeBidUserTop() {
         List<PhoneAndBidAmount> phoneAndBidAmountList = bidInfoMapper.queryAllUsersAndBidAmounts();
+        /*
         for (PhoneAndBidAmount phoneAndBidAmount : phoneAndBidAmountList) {
             redisTemplate.opsForZSet().incrementScore(Constants.TOP_INVESTOR, phoneAndBidAmount.getPhone(), phoneAndBidAmount.getBidMoney());
         }
+        */
     }
 }

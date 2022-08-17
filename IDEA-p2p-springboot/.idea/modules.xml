@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/IDEA-p2p-springboot.iml" filepath="$PROJECT_DIR$/.idea/IDEA-p2p-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p/p2p.iml" filepath="$PROJECT_DIR$/p2p/p2p.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p/p2p-application/p2p-application.iml" filepath="$PROJECT_DIR$/p2p/p2p-application/p2p-application.iml" />
+    </modules>
+  </component>
+</project>

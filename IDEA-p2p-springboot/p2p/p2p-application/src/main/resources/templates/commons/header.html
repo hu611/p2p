@@ -3,10 +3,15 @@
 //我要投资下拉
 $(function(){
 	$(".headBody .main-nav li:eq(1)").hover(function(){
-	    $(this).children(".menu-drop").stop(false,true).fadeIn();
+	    $(this).children(".menu-drop").fadeIn();
 	},function(){
-	    $(this).children(".menu-drop").stop(false,true).hide();
+	    $(this).children(".menu-drop").hide();
 	});
+    $(".headBody .no-login li:eq(1)").hover(function (){
+        $(this).children(".menu-drop").fadeIn();
+    },function (){
+        $(this).children(".menu-drop").hide();
+    })
 });
 </script>
 <!--页头start-->
@@ -37,6 +42,7 @@ $(function(){
 	               <a th:href="@{/loan/loan(ptype=2)}">散标类产品</a>
 	            </div>
             </li>
+            <li><h2><a id="wyjk" th:href="@{/loan/borrow}" class="/loan/borrower">我要借款<i></i></a></h2></li>
             <li><h2><a id="borrowers" href="javascript:void(0);" class="/loan/borrower">借款人信息<i></i></a></h2></li>
             <li><h2><a id="information" href="javascript:void(0);" class="/webPage/newInfoDisclosure/company-profile.htm">信息披露<i></i></a></h2></li>
             <li><h2><a id="insurance" href="javascript:void(0);" class="/webPage/index/insurance.html">安全计划<i></i></a></h2></li>
@@ -44,7 +50,14 @@ $(function(){
         <div class="login-right">
                 <div th:if="${session.session_user eq null}">
                     <!-- 未登录start -->
-                    <div class="no-login"><a th:href="@{/loan/page/register}" class="btn-reg">注册</a><a th:href="@{/loan/page/login}" class="btn-login">登录</a></div>
+                    <div class="no-login">
+                        <li>
+                        <a th:href="@{/loan/page/register}" class="btn-reg">注册</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/loan/page/login}" class="btn-login">登录</a>
+                        </li>
+                    </div>
                     <!-- 未登录end -->
                 </div>
 

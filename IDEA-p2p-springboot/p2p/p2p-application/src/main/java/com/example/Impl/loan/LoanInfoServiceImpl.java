@@ -31,11 +31,12 @@ public class LoanInfoServiceImpl implements LoanInfoService {
     @Autowired
     private BidInfoMapper bidInfoMapper;
 
-    @Autowired
-    private RedisTemplate<Object, Object> redisTemplate;
+    //@Autowired
+    //private RedisTemplate<Object, Object> redisTemplate;
 
     @Override
     public Double queryHistoryAvgRate() {
+        /*
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         Double avgRate = (Double) redisTemplate.opsForValue().get(Constants.HISTORY_AVG_RATE);
         if(!ObjectUtils.allNotNull(avgRate)) {
@@ -55,7 +56,8 @@ public class LoanInfoServiceImpl implements LoanInfoService {
         } else {
             System.out.println("===从Redis中获取数据===");
         }
-        return avgRate;
+         */
+        return loanInfoMapper.selectHistoryAvgRate();
     }
 
     @Override
@@ -120,6 +122,6 @@ public class LoanInfoServiceImpl implements LoanInfoService {
         }
 
         //store user bid price into Redis
-        redisTemplate.opsForZSet().incrementScore(Constants.TOP_INVESTOR, phone, bidMoney);
+        //redisTemplate.opsForZSet().incrementScore(Constants.TOP_INVESTOR, phone, bidMoney);
     }
 }
