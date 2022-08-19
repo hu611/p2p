@@ -2,8 +2,24 @@ function submit_borrow_info() {
     var rate = $("#rate").val()
     const productName = document.querySelector("#productName").value
     if(!productName) return;
-
-    const Text = document.querySelector('option[value="' + productName + '"]').label;
     var productMoney = $("#productMoney").val()
-    console.log(rate + " " + productName + " " + productMoney)
+    var projectName = $("#projectName").val()
+    var productDesc = $("#productDesc").val()
+    $.ajax({
+        url: "/loan/_borrow",
+        type: "GET",
+        data: {
+            rate:rate,
+            productName: productName,
+            productMoney: productMoney,
+            projectName: projectName,
+            productDesc:productDesc
+        },
+        success:function (data) {
+            alert(data.message)
+        },
+        error:function (data) {
+            alert("It does not work")
+        }
+    })
 }
