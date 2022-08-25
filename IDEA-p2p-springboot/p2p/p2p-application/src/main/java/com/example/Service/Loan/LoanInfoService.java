@@ -1,5 +1,6 @@
 package com.example.Service.Loan;
 
+import com.example.pojo.BidInfo;
 import com.example.pojo.LoanInfo;
 
 import java.util.List;
@@ -23,5 +24,7 @@ public interface LoanInfoService {
 
     LoanInfo queryLoanInfoById(int id);
 
-    public void invest(Map<String, Object> params) throws Exception;
+    void invest(Map<String, Object> params) throws Exception;
+
+    List<BidInfo> queryInvestmentsByUid(int id);
 }

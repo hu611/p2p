@@ -83,4 +83,5 @@ public interface LoanInfoMapper {
     int updateLeftProductMoney(Map<String, Object> params);
 
     List<LoanInfo> selectLoanInfoListByProductStatus(int i);
+
 }

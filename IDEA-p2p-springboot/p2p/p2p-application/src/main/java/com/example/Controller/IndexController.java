@@ -61,6 +61,7 @@ public class IndexController {
         List<LoanInfo> loanInfoListS = loanInfoService.queryLoanInfoListByProductType(params);
 
         //add info into model
+
         model.addAttribute(Constants.USER_COUNT,userCount);
         model.addAttribute(Constants.HISTORY_AVG_RATE,historyAvgRate);
         model.addAttribute(Constants.ALL_BID_MONEY, totalBidMoney);

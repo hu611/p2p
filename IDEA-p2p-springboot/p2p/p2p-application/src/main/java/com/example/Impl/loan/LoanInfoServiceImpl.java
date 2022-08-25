@@ -124,4 +124,9 @@ public class LoanInfoServiceImpl implements LoanInfoService {
         //store user bid price into Redis
         //redisTemplate.opsForZSet().incrementScore(Constants.TOP_INVESTOR, phone, bidMoney);
     }
+
+    @Override
+    public List<BidInfo> queryInvestmentsByUid(int id) {
+        return bidInfoMapper.selectBidInfoByUserId(id);
+    }
 }

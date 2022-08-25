@@ -67,4 +67,6 @@ public interface BidInfoMapper {
     List<PhoneAndBidAmount> queryAllUsersAndBidAmounts();
 
     List<BidInfo> selectBidInfoByLoanId(Integer id);
+
+    List<BidInfo> selectBidInfoByUserId(Integer id);
 }

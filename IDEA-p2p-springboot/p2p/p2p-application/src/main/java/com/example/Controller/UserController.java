@@ -1,9 +1,9 @@
 package com.example.Controller;
 
+import com.example.Service.Loan.LoanInfoService;
 import com.example.Utils.Constants;
 import com.example.Utils.Result;
-import com.example.pojo.FinanceAccount;
-import com.example.pojo.User;
+import com.example.pojo.*;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import com.example.Service.User.*;
 
@@ -30,6 +28,12 @@ public class UserController {
 
     @Autowired
     financeAccountService financeAccountService;
+
+    @Autowired
+    RechargeService rechargeService;
+
+    @Autowired
+    LoanInfoService loanInfoService;
 
     //@Autowired
     //RedisTemplate<Object, Object> redisTemplate;
@@ -117,6 +121,23 @@ public class UserController {
         User user = (User) request.getSession().getAttribute(Constants.SESSION_USER);
         FinanceAccount financeAccount = financeAccountService.queryFinanceAccountByUid(user.getId());
         model.addAttribute(Constants.AVAILABLE_MONEY, financeAccount.getAvailableMoney());
+        List<BidInfo> bidInfos = loanInfoService.queryInvestmentsByUid(user.getId());
+        List<BidInfo> ret_bidinfos = new ArrayList<>();
+        for(int i = 0; i < Math.min(bidInfos.size(), 5); i++) {
+            BidInfo curr = bidInfos.get(i);
+            curr.setProduct_name(loanInfoService.queryLoanInfoById(curr.getLoanId()).getProductName());
+            curr.setId(i+1);
+            ret_bidinfos.add(curr);
+        }
+        model.addAttribute(Constants.BID_INFO_LIST,ret_bidinfos);
+        List<RechargeRecord> rechargeRecords = rechargeService.getRechargeRecords(user.getId());
+        List<RechargeRecord> ret_recharge = new ArrayList<>();
+        for(int i = 0; i < Math.min(rechargeRecords.size(), 5); i++) {
+            RechargeRecord rr = rechargeRecords.get(i);
+            rr.setId(i+1);
+            ret_recharge.add(rr);
+        }
+        model.addAttribute(Constants.RECHARGE_RECORD, ret_recharge);
         return "myCenter";
     }
 
@@ -170,6 +191,20 @@ public class UserController {
         //redisTemplate.setKeySerializer(new StringRedisSerializer());
         //redisTemplate.opsForValue().set(phone, result);
         return Result.success(result);
+    }
+
+    @RequestMapping("/user/investments")
+    public String show_investments(HttpServletRequest request,
+                                   Model model) {
+        User user = (User)request.getSession().getAttribute(Constants.SESSION_USER);
+        List<BidInfo> bidInfoList = loanInfoService.queryInvestmentsByUid(user.getId());
+        ArrayList<Integer> al = new ArrayList<>();
+        for(BidInfo bidInfo: bidInfoList) {
+            String product_name = loanInfoService.queryLoanInfoById(bidInfo.getLoanId()).getProductName();
+            bidInfo.setProduct_name(product_name);
+        }
+        model.addAttribute("bidInfoList",bidInfoList);
+        return "invest_info";
     }
 
 }

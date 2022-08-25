@@ -41,8 +41,8 @@ public class BorrowInfoController {
         User user = (User) request.getSession().getAttribute(Constants.SESSION_USER);
         if(user == null) {
             return Result.fail("Please Log in first");
-
         }
+
         hm.put("rate",rate);
         hm.put("productName", productName);
         hm.put("productMoney",productMoney);

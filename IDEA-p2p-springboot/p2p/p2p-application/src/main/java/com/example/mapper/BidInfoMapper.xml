@@ -189,4 +189,8 @@
   <select id="selectBidInfoByLoanId" resultMap="BaseResultMap">
     select * from b_bid_info where loan_id = #{id}
   </select>
+
+  <select id="selectBidInfoByUserId" resultMap="BaseResultMap">
+    select * from b_bid_info where uid = #{id}
+  </select>
 </mapper>

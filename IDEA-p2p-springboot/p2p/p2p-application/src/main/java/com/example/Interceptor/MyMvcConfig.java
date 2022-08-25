@@ -9,7 +9,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor()).
-                addPathPatterns("/loan/*/*").
+                addPathPatterns("/user/**").
                 excludePathPatterns("/loan/page/login").
                 excludePathPatterns("/loan/page/register");
     }

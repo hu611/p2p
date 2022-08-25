@@ -25,6 +25,7 @@ $(function() {
 	});
 
 	// 真实姓名输入框失去焦点验证
+
 	$("#realName").on("blur", function () {
 		var realName = $.trim($("#realName").val());
 		if (realName == "") {
@@ -35,6 +36,7 @@ $(function() {
 			showSuccess("realName");
 		}
 	})
+
 
 	// 身份证失去焦点事件
 	$("#idCard").on("blur", function () {

@@ -129,8 +129,8 @@ body { height:100%;}
 .headBody .no-login .btn-login{ float:right; border: solid 1px #999; background: #fff; color: #444;}
 .headBody .no-login .btn-reg{ float:right; border: solid 1px #ff4545; background: #fff; color: #ff4545; margin-left: 10px;}
 .headBody .no-login .btn-login:hover,.headBody .no-login .btn-reg:hover{ background-color:#ff4545; border-color:#ff4545; color: #fff;}
-.headBody .logged{ margin-top: 25px; position: relative;}
-.headBody .userinfo-up,.userinfo-up{ width: 198px; height: 33px; background: #fff; border:solid 1px #dcdcdc;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+.headBody .logged{ margin-top: 0; position: relative;}
+.headBody .userinfo-up{ width: 198px; height: 33px; background: #fff; border:solid 1px #dcdcdc;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
 .headBody .userinfo-up i,.userinfo-up i{ float: right; width: 9px; height: 5px; overflow: hidden; background:url(../images/head_icon.png) no-repeat -140px 0px; display: inline; margin:15px 10px 0 0;}
 .headBody .user-phone,.userinfo-up .user-phone{ float: left; width: 100px; padding-left: 20px; line-height: 33px; color: #333; font-size: 14px;}
 .headBody .user-phone:hover{ color: #ff4545;}

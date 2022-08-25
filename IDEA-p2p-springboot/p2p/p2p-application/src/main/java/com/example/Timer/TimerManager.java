@@ -12,9 +12,9 @@ public class TimerManager {
 
     public void generateIncomePlan() {
         try {
-            System.out.println("===========Starting generate income plan======");
+            //System.out.println("===========Starting generate income plan======");
             incomeRecordService.generateIncomePlan();
-            System.out.println("===========Ending generate income plan======");
+            //System.out.println("===========Ending generate income plan======");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -44,4 +44,6 @@ public class Constants {
     public static final String TOP_INVESTOR = "invest_top";
 
     public static final String BID_USER_LISTS = "bidUserLists";
+
+    public static final String RECHARGE_RECORD = "rechargeRecord";
 }

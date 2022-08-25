@@ -302,4 +302,5 @@
   <select id="selectLoanInfoListByProductStatus" resultMap="BaseResultMap">
     select * from b_loan_info where product_status = 1;
   </select>
+
 </mapper>
